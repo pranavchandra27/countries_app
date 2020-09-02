@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Home, Navbar, CountryInfo } from "./components";
 
-function App() {
+import { GlobalStyles } from "./App.styles";
+import { ThemeProvider } from "styled-components";
+import { useCurrentTheme } from "./ThemeContext";
+
+const App = () => {
+  const { currentTheme } = useCurrentTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={currentTheme}>
+        <GlobalStyles />
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/country/:code' component={CountryInfo} />
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </>
   );
-}
+};
 
 export default App;
