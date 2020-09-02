@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.bg};
   padding-top: 60px;
-  transition: background 0.1s ease;
-  min-height: 100vh;
+  min-height: calc(100vh- 80px);
 
   .spinner {
     height: calc(100vh - 80px);

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.bg};
   padding: 60px 0;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
 
   .go_back {
     padding: 6px 40px 6px 30px;

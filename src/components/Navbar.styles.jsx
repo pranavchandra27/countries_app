@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   background: ${({ theme }) => theme.elements};
-  transition: background 0.1s ease;
   position: relative;
 
   .container {
